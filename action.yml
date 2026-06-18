@@ -1,5 +1,5 @@
 name: 'Archaeologist Codebase Intelligence'
-description: 'Weekly or daily codebase report — dead code, complexity, duplicates, architecture graph, change impact. Posted as a GitHub Issue.'
+description: 'Automated codebase reports — dead code, complexity, duplicates, change impact. Posted as GitHub Issues.'
 author: 'prathik-arun'
 
 branding:
