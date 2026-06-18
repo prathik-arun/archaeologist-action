@@ -1,0 +1,34 @@
+name: 'Archaeologist Codebase Intelligence'
+description: 'Weekly or daily codebase report — dead code, complexity, duplicates, architecture graph, change impact. Posted as a GitHub Issue.'
+author: 'prathik-arun'
+
+branding:
+  icon: 'search'
+  color: 'yellow'
+
+inputs:
+  min-confidence:
+    description: 'Minimum confidence score for dead code (0-100)'
+    required: false
+    default: '70'
+  min-complexity:
+    description: 'Minimum complexity score to report'
+    required: false
+    default: '15'
+  language:
+    description: 'Filter by language (python, dart, javascript, typescript, go, etc.)'
+    required: false
+    default: ''
+  github-token:
+    description: 'GitHub token for posting issues'
+    required: true
+    default: '${{ github.token }}'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    GITHUB_TOKEN: ${{ inputs.github-token }}
+    MIN_CONFIDENCE: ${{ inputs.min-confidence }}
+    MIN_COMPLEXITY: ${{ inputs.min-complexity }}
+    LANGUAGE: ${{ inputs.language }}
